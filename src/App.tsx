@@ -109,8 +109,16 @@ function Hero() {
   return (
     <section
       id="accueil"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Background image */}
+      <img
+        src="/images/hero.jpg"
+        alt="Cabinet d'avocats"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-dark/80" />
+
       {/* Abstract geometric shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 rounded-full border border-white/5"></div>
