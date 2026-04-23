@@ -187,16 +187,19 @@ function Expertises() {
       icon: Anchor,
       title: 'Droit Maritime',
       desc: 'Contentieux armateurs, affrètement, transport maritime, pollution maritime, saisies conservatoires et exécution sur navires.',
+      img: '/images/ship.jpg',
     },
     {
       icon: Shield,
       title: 'Assurances',
       desc: 'Contentieux en assurance maritime, responsabilité civile, sinistres, recours des assureurs et défense des assurés.',
+      img: '/images/contract.jpg',
     },
     {
       icon: Scale,
       title: 'Droit Privé',
       desc: 'Droit des affaires, contrats commerciaux, contentieux civil, procédures devant les juridictions marocaines.',
+      img: '/images/office.jpg',
     },
   ]
 
@@ -217,16 +220,26 @@ function Expertises() {
           {cards.map((c, i) => (
             <div
               key={i}
-              className="group bg-white p-10 rounded-2xl border border-gray-light/50 transition-all duration-500 hover:shadow-xl hover:shadow-dark/5 hover:-translate-y-1"
+              className="group bg-white rounded-2xl border border-gray-light/50 transition-all duration-500 hover:shadow-xl hover:shadow-dark/5 hover:-translate-y-1 overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-8 transition-colors duration-300 group-hover:bg-primary">
-                <c.icon
-                  size={24}
-                  className="text-primary transition-colors duration-300 group-hover:text-white"
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/90 flex items-center justify-center">
+                    <c.icon size={20} className="text-white" />
+                  </div>
+                </div>
               </div>
-              <h3 className="font-serif text-xl text-dark mb-4">{c.title}</h3>
-              <p className="text-dark-light/80 leading-relaxed text-sm">{c.desc}</p>
+              <div className="p-8">
+                <h3 className="font-serif text-xl text-dark mb-3">{c.title}</h3>
+                <p className="text-dark-light/80 leading-relaxed text-sm">{c.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -242,22 +255,17 @@ function APropos() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl bg-dark relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-full border-2 border-primary/30 flex items-center justify-center mx-auto mb-6">
-                    <Scale size={40} className="text-primary" />
-                  </div>
-                  <span className="font-serif text-3xl text-white">K.<span className="text-primary">Berrami</span></span>
-                </div>
+            <div className="aspect-[4/5] rounded-2xl bg-dark relative overflow-hidden shadow-2xl">
+              <img
+                src="/images/portrait.jpg"
+                alt="Maître Khalid Berrami"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="font-serif text-2xl text-white">Maître Khalid Berrami</p>
+                <p className="text-white/60 text-sm mt-1">Avocat au Barreau de Casablanca</p>
               </div>
-
-              {/* Decorative lines */}
-              <div className="absolute top-10 left-10 w-16 h-[1px] bg-white/20"></div>
-              <div className="absolute top-10 left-10 w-[1px] h-16 bg-white/20"></div>
-              <div className="absolute bottom-10 right-10 w-16 h-[1px] bg-white/20"></div>
-              <div className="absolute bottom-10 right-10 w-[1px] h-16 bg-white/20"></div>
             </div>
 
             <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full border border-primary/20"></div>
